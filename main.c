@@ -16,12 +16,12 @@ int main(void)
 }
 
 void display_notes(unsigned int notes){
-  int breakDown[8]={1,5,10,20,50,100,500,2000};
+  int divisor = 0x10000000;
+  int breakDown[8]={2000, 500, 100, 50, 20, 10, 5, 1};
   unsigned int noteCount;
     for(int i=0;i<8;i++){
-      // printf("%u\n",notes);
-      noteCount = notes % 0x10;
+      noteCount = notes / divisor;
       printf("%u notes of %d\n",noteCount,breakDown[i]);
-      notes>>=4;
+      notes<<=4;
     }
 }
